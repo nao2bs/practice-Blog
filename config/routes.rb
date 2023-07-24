@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :posts, :only => [:index, :show]
+  resources :posts, :only => [:index, :show] do
+    resources :comments, :only => [:create, :destroy]
+  end
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
