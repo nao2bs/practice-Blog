@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            //Rails serverを起動します
+            "name": "Debug Rails",
+            "type": "rdbg",
+            "request": "launch",
+            // "command": "bundle exec rails", //bundle exec rails だとデバッガで止まらない
+            "command": "bin/rails",
+            "script": "s",
+            "args": ["-b","0.0.0.0"],
+        },
+        {
+            // アクティブになっているRspecファイルのテストを実行します
+            "name": "Debug Rspec with current file",
+            "type": "rdbg",
+            "request": "launch",
+            "command": "bundle exec rspec",
+            "script": "${file}",
+            "args": [],
+            // 実行コマンドをウインドウで確認。特定行の実行などオプションを指定しやすくする
+            "askParameters": true
+        }
+    ]
+}
