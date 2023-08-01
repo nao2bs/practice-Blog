@@ -20,8 +20,22 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"KoichiSasada.vscode-rdbg"
-			]
+				"KoichiSasada.vscode-rdbg",
+				"castwide.solargraph"
+			],
+			"settings": {
+				// Settings for Solargraph
+				"solargraph.useBundler":  false,
+				"solargraph.diagnostics": false,
+				"solargraph.formatting":  true,
+				"solargraph.autoformat":  false,
+				"solargraph.definitions": true,
+				"solargraph.completion":  true,
+				"solargraph.references":  true,
+				"solargraph.symbols":     true,
+				"solargraph.rename":      true,
+				"solargraph.hover":       true
+			}
 		}
 	}
 
