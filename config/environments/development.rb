@@ -33,6 +33,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+  config.hosts << "nao2bs-verbose-meme-955vv7x69q43p7x5-3000.preview.app.github.dev"
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
