@@ -78,3 +78,4 @@ gem "devise"
 gem 'devise-tailwindcssed'
 gem 'activeadmin'
 gem 'rails-i18n'
+gem 'kaminari'
