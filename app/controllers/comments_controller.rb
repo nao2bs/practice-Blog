@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
             @post = Post.find(params[:post_id])
         end
 
-         def comments_params
-            params.required(:comment).permit(:content)
+        def comments_params
+            params.require(:comment).permit(:content)
         end
 end

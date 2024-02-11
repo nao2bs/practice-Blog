@@ -19,11 +19,16 @@
                 </p>
 
                 <div class="mt-6">
+                    <% @post.comments.each do |comment| %>
+                        <div class="bg-gray-100 p-3 my-2">
+                            <p><%= comment.content %></p>
+                        </div>
+                    <% end %>
                     <h1 class="text-2xl font-bold pb-3">コメントフォーム</h1>
-                    <form action="#" method="post">
-                        <textarea name="comment" id="comment" rows="4" class="bg-gray-100 p-2 rounded-md" placeholder="コメントを入力してください"></textarea>
-                        <p><button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-2">コメントする</button></p>
-                    </form>
+                    <%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+                        <%= form.text_area :content %>
+                        <%= form.submit %>
+                    <% end %>
                 </div>
                 <%# <h1 class="text-2xl font-bold pb-3">Introduction</h1>
                 <p class="pb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vel neque non libero suscipit suscipit eu eu urna. Proin bibendum urna mattis ante malesuada ultrices. Etiam in turpis vitae elit dictum aliquet. Donec mattis risus in turpis dapibus, eget tempus sem tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In est enim, imperdiet sed ornare quis, pellentesque vel risus. Nunc vitae vestibulum turpis. Quisque eget eleifend urna. Etiam et vulputate purus, ut egestas sem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis quis neque non urna venenatis mollis et at massa. Pellentesque sem lacus, malesuada vel hendrerit molestie, mollis vel elit.</p>

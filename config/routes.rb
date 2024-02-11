@@ -20,4 +20,7 @@ Rails.application.routes.draw do
 
   post '/pages/guest_sign_in', to: 'pages#new_guest'
 
+  resources :posts do
+    resources :comments
+  end
 end
