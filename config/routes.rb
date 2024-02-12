@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  resources :posts, :only => [:index, :show] do
-    resources :comments, :only => [:create, :destroy]
+  resources :posts, only: [:index, :show] do
+    resources :comments, only: [:create, :destroy]
   end
   
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   post '/pages/guest_sign_in', to: 'pages#new_guest'
 
-  resources :posts do
-    resources :comments
-  end
+  # resources :posts do
+  #   resources :comments
+  # end
 end
