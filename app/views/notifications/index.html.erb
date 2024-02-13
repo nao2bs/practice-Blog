@@ -1,0 +1,17 @@
+<div>
+  <h4 class="sub-title">通知</h4>
+  <% if @notifications.exists? %>
+    <div class="users-index">
+    <% @notifications.all.each do |notification| %>
+      日時：<%= notification.created_at %>
+      未読：<%= notification.read %>
+      ユーザー：<%= notification.user %>
+      ユーザーID：<%= notification.user_id %>
+      コメントID：<%= notification.comment_id %>
+      コメント：<%= notification.content %>
+    <% end %>
+    </div>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>
