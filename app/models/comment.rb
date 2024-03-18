@@ -16,4 +16,10 @@ class Comment < ApplicationRecord
   # def create_notification
   #   Notification.create(comment: self, content: "New comment on post '#{self.post.title}'")
   # end
+
+  # The `def self.recent(limit)` method in the `Post` class is a custom class method that returns a
+  # specified number of most recent posts based on the `created_at` attribute in descending order.
+  def self.recent(limit)
+      order(created_at: :desc).limit(limit)
+  end 
 end

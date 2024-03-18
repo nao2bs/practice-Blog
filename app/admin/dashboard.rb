@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 ActiveAdmin.register_page "Dashboard" do
+
   menu priority: 1, label: proc { I18n.t("active_admin.dashboard") }
 
   content title: proc { I18n.t("active_admin.dashboard") } do
@@ -28,6 +29,16 @@ ActiveAdmin.register_page "Dashboard" do
           para "Welcome to ActiveAdmin."
         end
       end
+
+      column do
+        panel "ALL Comments" do
+          ul do
+            Comment.recent(5).map do |comment|
+              li link_to(comment.content, admin_comment_path(comment))
+            end
+          end
+        end
+      end
     end
-  end # content
+  end
 end
