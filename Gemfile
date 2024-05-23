@@ -79,3 +79,5 @@ gem 'devise-tailwindcssed'
 gem 'activeadmin'
 gem 'rails-i18n'
 gem 'kaminari'
+# activeadminにmarkdownサポ―トを追加
+gem 'activeadmin_simplemde'

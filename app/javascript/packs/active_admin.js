@@ -3,3 +3,6 @@
 import "../stylesheets/active_admin";
 
 import "@activeadmin/activeadmin";
+
+//= require active_admin/simplemde/simplemde
+//= require active_admin/simplemde_editor_input
