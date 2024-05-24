@@ -79,3 +79,4 @@ gem 'devise-tailwindcssed'
 gem "rails_admin"
 gem 'rails-i18n'
 gem "sassc-rails"
+gem "kaminari"
