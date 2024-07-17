@@ -76,5 +76,7 @@ end
 gem "tailwindcss-rails", "~> 2.0"
 gem "devise"
 gem 'devise-tailwindcssed'
-gem 'activeadmin'
+gem "rails_admin"
 gem 'rails-i18n'
+gem "sassc-rails"
+gem "kaminari"
