@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :posts, :only => [:index, :show] do
-    resources :comments, :only => [:create, :destroy]
+  resources :posts, only: %i[index show] do
+    resources :comments, only: %i[create destroy]
   end
 
   devise_for :users
@@ -11,12 +11,9 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # http://localhost:3000
-  root to: "pages#index"
+  root to: 'pages#home'
 
-  # http://localhost:3000/pages/home
-  get "pages/home"
   get 'set_theme', to: 'theme#update'
 
   post '/pages/guest_sign_in', to: 'pages#new_guest'
-
 end
