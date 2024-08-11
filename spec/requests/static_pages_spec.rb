@@ -1,53 +1,105 @@
 require 'rails_helper'
 
 RSpec.describe 'StaticPages', type: :request do
-  describe 'Root page' do
-    it '/ Topページは閲覧不可' do
+  # factories/users.rb
+  FactoryBot.define do
+    factory :guest_user, class: User do
+      # ユーザー名
+      # name { 'テストユーザー' }
+      # メールアドレス
+      email { 'guestuser@example.com' }
+      # パスワード
+      password { 'password' }
+    end
+
+    factory :admin_user, class: User do
+      email { 'adminuser@example.com' }
+      password { 'password' }
+      # 管理者フラグ
+      admin { true }
+    end
+  end
+
+  describe 'Home page' do
+    example 'root_pathは閲覧不可' do
       get root_path
       expect(response).to have_http_status '302'
     end
-  end
-
-  describe "Admin page" do
-    it "/adminページは閲覧不可" do
+    example 'admin_pathは閲覧不可' do
       get rails_admin_path
       expect(response).to have_http_status '302'
     end
-
-    it "管理者は閲覧可能" do
-      
-    end
   end
 
-  describe 'Root page' do
-    it '/admin 正常にレスポンスが返ってくること' do
-      get admin_path
+  describe 'Admin page' do
+    example '管理者は閲覧可能' do
+      admin = FactoryBot.create(:admin_user)
+      sign_in admin
+      get rails_admin_path
       expect(response).to have_http_status '200'
     end
   end
 
-  describe 'Home page Login' do
-    user = User.new(email: 'guest@example.com')
-    it '正常にゲストログインできること' do
-      sign_in user
-      get pages_home_path
+  describe 'ゲストユーザーログイン' do
+    example 'root_pathへ正常にログインできること' do
+      guest = FactoryBot.create(:guest_user)
+      sign_in guest
+      get root_path
       expect(response).to have_http_status '200'
     end
-  end
 
-  describe 'Home page login Error' do
-    valid_user = User.new(email: 'test@test.com', password: '', password_confirmation: 'password')
-    it 'ゲストログイン失敗' do
-      sign_in valid_user
-      expect(response).to be_falsey
+    example 'パスワードを間違えてログインに失敗すること' do
+      guest = FactoryBot.create(:guest_user)
+      post user_session_path, params: { email: guest.email, password: 'wrong_password' }
+      expect(response).to have_http_status '422'
+    end
+
+    example 'メールアドレスを間違えてログインに失敗すること' do
+      guest = FactoryBot.create(:guest_user)
+      post user_session_path, params: { email: 'wrong_email', password: guest.password }
+      expect(response).to have_http_status '422'
     end
   end
+  # describe 'Root page' do
+  #   it '/ Topページは閲覧不可' do
+  #     get root_path
+  #     expect(response).to have_http_status '302'
+  #   end
+  # end
 
-  describe 'Home Pageへはログインしないと表示できない' do
-    it 'ログインなしでは302' do
-      get pages_home_path
-      expect(response).to have_http_status '302'
-      expect(response).to redirect_to new_user_session_path
-    end
-  end
+  # describe 'Admin page' do
+  #   it '/adminページは閲覧不可' do
+  #     get rails_admin_path
+  #     expect(response).to have_http_status '302'
+  #   end
+
+  #   it '管理者は閲覧可能' do
+  #     sign_in admin
+  #     get rails_admin_path
+  #     expect(response).to have_http_status '200'
+  #   end
+  # end
+
+  # describe 'Root page' do
+  #   it '/admin 正常にレスポンスが返ってくること' do
+  #     get admin_path
+  #     expect(response).to have_http_status '200'
+  #   end
+  # end
+
+  # describe 'Home page Login' do
+  #   it '正常にゲストログインできること' do
+  #     sign_in user
+  #     get root_path
+  #     expect(response).to have_http_status '200'
+  #   end
+  # end
+
+  # describe 'Home page login Error' do
+  #   # valid_user = User.new(email: 'test@test.com', password: '', password_confirmation: 'password')
+  #   # it 'ゲストログイン失敗' do
+  #   #   sign_in valid_user
+  #   #   expect(response).to be_falsey
+  #   # end
+  # end
 end
