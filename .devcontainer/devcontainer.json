@@ -13,7 +13,10 @@
         "Shopify.ruby-lsp",
         "castwide.solargraph",
         "kaiwood.endwise",
-        "craigmaslowski.erb"
+        "craigmaslowski.erb",
+        "Codeium.codeium",
+        "hbenl.vscode-test-explorer",
+        "connorshea.vscode-ruby-test-adapter"
       ],
       "settings": {
         "editor.tabSize": 2,
