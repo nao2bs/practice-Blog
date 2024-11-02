@@ -29,25 +29,25 @@
 
   <body class="<%= cookies[:theme] %>, bg-gray-200 font-family-karla text-black">
     
-<nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
-  <div class="flex items-center flex-shrink-0 text-white mr-6">
-    <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-    <span class="font-semibold text-xl tracking-tight">Tailwind CSS</span>
+<nav class="flex flex-wrap items-center justify-between p-6 bg-teal-500">
+  <div class="flex items-center flex-shrink-0 mr-6 text-white">
+    <svg class="w-8 h-8 mr-2 fill-current" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
+    <span class="text-xl font-semibold tracking-tight">Tailwind CSS</span>
   </div>
   <div class="block lg:hidden">
-    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
-      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    <button class="flex items-center px-3 py-2 text-teal-200 border border-teal-400 rounded hover:text-white hover:border-white">
+      <svg class="w-3 h-3 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
     </button>
   </div>
-  <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+  <div class="flex-grow block w-full lg:flex lg:items-center lg:w-auto">
     <div class="text-sm lg:flex-grow">
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="#responsive-header" class="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
         Docs
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="#responsive-header" class="block mt-4 mr-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
         Examples
       </a>
-      <a href="#responsive-header" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white">
+      <a href="#responsive-header" class="block mt-4 text-teal-200 lg:inline-block lg:mt-0 hover:text-white">
         Blog
       </a>
     </div>
@@ -58,13 +58,13 @@
       
   <%= yield %>
 
-    <footer class="w-full border-t bg-white pb-12">
+    <footer class="w-full pb-12 bg-white border-t">
       <div
-          class="relative w-full flex items-center invisible md:visible md:pb-12"
+          class="relative flex items-center invisible w-full md:visible md:pb-12"
           x-data="getCarouselData()"
       >
-          <button
-              class="absolute bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 ml-12"
+          <%# <button
+              class="absolute w-16 h-16 ml-12 text-2xl font-bold text-white bg-blue-800 rounded-full hover:bg-blue-700 hover:shadow"
               x-on:click="decrement()">
               &#8592;
           </button>
@@ -72,19 +72,19 @@
               <img class="w-1/6 hover:opacity-75" :src="image">
           </template>
           <button
-              class="absolute right-0 bg-blue-800 hover:bg-blue-700 text-white text-2xl font-bold hover:shadow rounded-full w-16 h-16 mr-12"
+              class="absolute right-0 w-16 h-16 mr-12 text-2xl font-bold text-white bg-blue-800 rounded-full hover:bg-blue-700 hover:shadow"
               x-on:click="increment()">
               &#8594;
-          </button>
+          </button> %>
       </div>
-      <div class="w-full container mx-auto flex flex-col items-center">
-          <div class="flex flex-col md:flex-row text-center md:text-left md:justify-between py-6">
-              <a href="#" class="uppercase px-3">About Us</a>
-              <a href="#" class="uppercase px-3">Privacy Policy</a>
-              <a href="#" class="uppercase px-3">Terms & Conditions</a>
-              <a href="#" class="uppercase px-3">Contact Us</a>
+      <div class="container flex flex-col items-center w-full mx-auto">
+          <div class="flex flex-col py-6 text-center md:flex-row md:text-left md:justify-between">
+              <a href="#" class="px-3 uppercase">About Us</a>
+              <a href="#" class="px-3 uppercase">Privacy Policy</a>
+              <a href="#" class="px-3 uppercase">Terms & Conditions</a>
+              <a href="#" class="px-3 uppercase">Contact Us</a>
           </div>
-          <div class="uppercase pb-6">&copy; myblog.com</div>
+          <div class="pb-6 uppercase">&copy; myblog.com</div>
       </div>
   </footer>
 
@@ -93,15 +93,15 @@
           return {
               currentIndex: 0,
               images: [
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=1',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=2',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=3',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=4',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=5',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=6',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=7',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=8',
-                  'https://source.unsplash.com/collection/1346951/800x800?sig=9',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=1',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=2',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=3',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=4',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=5',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=6',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=7',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=8',
+                  // 'https://source.unsplash.com/collection/1346951/800x800?sig=9',
               ],
               increment() {
                   this.currentIndex = this.currentIndex === this.images.length - 6 ? 0 : this.currentIndex + 1;
