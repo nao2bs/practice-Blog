@@ -44,3 +44,16 @@
     color: var(--dark-text-color);
   }
 }
+
+/* kaminari */
+.pagination ul {
+  list-style: none; /* リストのデフォルトスタイルを削除 */
+  padding: 0;
+  margin: 0;
+}
+
+.pagination li {
+  display: inline-block; /* リンクをインラインで表示 */
+  margin: 0;
+  padding: 0;
+}
