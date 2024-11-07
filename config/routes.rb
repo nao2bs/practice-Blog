@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   # http://localhost:3000
-  root to: 'pages#home'
+  # root to: 'pages#home'
+  root to: 'posts#index'
 
   get 'set_theme', to: 'theme#update'
 
