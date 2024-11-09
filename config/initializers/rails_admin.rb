@@ -48,11 +48,21 @@ RailsAdmin.config do |config|
 
   config.model 'Post' do
     edit do
-      field :title
-      field :content
-      field :category
-      field :date
-      field :author
+      field :title do
+        required true
+      end
+      field :content do
+        required true
+      end
+      field :category do
+        required true
+      end
+      field :date do
+        required true
+      end
+      field :author do
+        required true
+      end
     end
   end
 end
