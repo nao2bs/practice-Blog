@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # http://localhost:3000
   root to: 'pages#home'
 
-  get 'set_theme', to: 'theme#update'
+  get 'set_theme', to: 'theme#update', as: :set_theme
 
   post '/pages/guest_sign_in', to: 'pages#new_guest'
 end
