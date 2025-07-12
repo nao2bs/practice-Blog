@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+SiteConfig.find_or_create_by(id: 1) do |config|
+  config.instagram_text = 'Follow @nao2bs'
+  config.instagram_link = 'https://instagram.com/nao2bs'
+end
