@@ -9,7 +9,7 @@
                 <%# <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1"> %>
             </a>
             <div class="flex flex-col justify-start p-6 bg-white">
-                <a href="#" class="pb-4 text-sm font-bold text-blue-700 uppercase"><%= @post.category.name %></a>
+                <a href="#" class="pb-4 text-sm font-bold text-blue-700 uppercase"><%= @post.category&.name %></a>
                 <a class="text-3xl font-bold"><%= @post.title %></a>
                 <p href="#" class="pb-8 text-sm">
                     By <a href="#" class="font-semibold hover:text-gray-800"><%= @post.author %></a>, Published on <%= @post.created_at.strftime('%Y/%m/%d') %>
