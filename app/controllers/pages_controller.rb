@@ -10,6 +10,9 @@ class PagesController < ApplicationController
     @title = 'home'
   end
 
+  # ゲストユーザーとしてログインする
+  #
+  # Find or create a guest user, sign in and redirect to root path.
   def new_guest
     user = User.find_or_create_by(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

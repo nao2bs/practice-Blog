@@ -1,6 +1,22 @@
 RailsAdmin.config do |config|
   config.asset_source = :sprockets
 
+  config.model 'SiteConfig' do
+    label 'サイト設定'
+    label_plural 'サイト設定'
+
+    # レコード個別の表示をカスタマイズする場合
+    # SiteConfigのインスタンス（レコード）が自身をどう表示するか定義
+    # 例えば、IDを表示しないようにしたい場合など
+    # object_label_method do
+    #   :instagram_text # または :id, またはメソッドを定義
+    # end
+    # 例として、レコードが一つしかないなら「Instagram設定」と表示したい場合
+    # object_label_method do
+    #   'Instagram設定'
+    # end
+  end
+
   ### Popular gems integration
 
   ## == Devise ==
