@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   has_many :comments
   belongs_to :category
+  belongs_to :user
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[author content created_at date id title updated_at]
