@@ -90,6 +90,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    charlock_holmes (0.7.9)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -106,6 +107,7 @@ GEM
       rails (>= 5.2.3.4, < 7.1)
       railties (> 4.0, < 7.1)
     diff-lcs (1.5.0)
+    docile (1.4.1)
     e2mmap (0.1.0)
     erubi (1.12.0)
     factory_bot (6.4.6)
@@ -213,6 +215,11 @@ GEM
       nested_form (~> 0.3)
       rails (>= 6.0, < 8)
       turbo-rails (~> 1.0)
+    rails_admin_import (3.0.4)
+      charlock_holmes (~> 0.7)
+      rails (>= 3.2)
+      rails_admin (>= 3.0.0.beta)
+      simple_xlsx_reader (~> 1.0)
     railties (7.0.4.2)
       actionpack (= 7.0.4.2)
       activesupport (= 7.0.4.2)
@@ -276,6 +283,15 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    simple_xlsx_reader (1.0.5)
+      nokogiri
+      rubyzip
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.13.2)
+    simplecov_json_formatter (0.1.4)
     solargraph (0.49.0)
       backport (~> 1.2)
       benchmark
@@ -352,9 +368,11 @@ DEPENDENCIES
   rails (~> 7.0.4, >= 7.0.4.2)
   rails-i18n
   rails_admin
+  rails_admin_import (~> 3.0)
   rspec-rails
   sassc-rails
   selenium-webdriver
+  simplecov
   solargraph
   sprockets-rails
   sqlite3 (~> 1.4)

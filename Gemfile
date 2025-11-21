@@ -54,6 +54,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails'
+  gem 'simplecov', require: false
 end
 
 group :development do
@@ -80,5 +81,6 @@ gem 'devise'
 gem 'devise-tailwindcssed'
 gem 'kaminari'
 gem 'rails_admin'
+gem 'rails_admin_import', '~> 3.0'
 gem 'rails-i18n'
 gem 'tailwindcss-rails', '~> 2.0'

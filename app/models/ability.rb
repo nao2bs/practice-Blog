@@ -32,5 +32,8 @@ class Ability
 
     can :access, :rails_admin
     can :manage, :all
+    # rails_admin import ability
+    cannot :import, :all
+    can :import, [Post]
   end
 end

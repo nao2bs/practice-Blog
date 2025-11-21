@@ -14,20 +14,22 @@
         <div class="flex flex-col w-full p-6 my-4 bg-white shadow">
             <p class="pb-5 text-xl font-semibold">Instagram</p>
             <div class="grid grid-cols-3 gap-3">
-                <%# <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=1">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=2">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=3">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=4">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=5">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=6">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=7">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=8">
-                <img class="hover:opacity-75" src="https://source.unsplash.com/collection/1346951/150x150?sig=9"> %>
             </div>
             <a href="#" class="flex items-center justify-center w-full px-2 py-3 mt-6 text-sm font-bold text-white bg-blue-800 rounded hover:bg-blue-700" style="
     color: white;
     text-decoration: none;">
-                <i class="mr-2 fab fa-instagram"></i> Follow <%= p "@nao2bs".downcase %>
+                <i class="mr-2 fab fa-instagram"></i>
+                <% site_config = SiteConfig.first %>
+  <% if site_config && site_config.published %>
+    <a href="<%= site_config.instagram_link %>"
+       class="inline-flex items-center justify-center w-full px-4 py-2 text-base font-semibold text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700"
+       target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram mr-2"></i> <%= site_config.instagram_text %>
+    </a>
+  <% else %>
+    <%# 設定がない場合のフォールバック（例：何も表示しない、またはデフォルト値を表示） %>
+    <p>Instagramの設定がありません。</p>
+  <% end %>
             </a>
         </div>
 
