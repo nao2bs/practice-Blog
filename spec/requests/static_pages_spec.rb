@@ -1,6 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe 'StaticPages', type: :request do
+  describe 'GET /index' do
+    it 'returns http success' do
+      category = Category.create!(name: 'Test Category')
+      Post.create!(title: 'Index Post', content: 'content', author: 'author', date: Date.today, category: category)
+
+      get '/posts'
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  describe 'GET /show' do
+    it 'returns http success' do
+      category = Category.create!(name: 'Show Category')
+      post = Post.create!(title: 'Show Post', content: 'content', author: 'author', date: Date.today,
+                          category: category)
+
+      get "/posts/#{post.id}"
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   # factories/users.rb
   FactoryBot.define do
     factory :guest_user, class: User do
@@ -60,12 +81,6 @@ RSpec.describe 'StaticPages', type: :request do
       expect(response).to have_http_status '422'
     end
   end
-  # describe 'Root page' do
-  #   it '/ Topページは閲覧不可' do
-  #     get root_path
-  #     expect(response).to have_http_status '302'
-  #   end
-  # end
 
   # describe 'Admin page' do
   #   it '/adminページは閲覧不可' do

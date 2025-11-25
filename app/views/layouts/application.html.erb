@@ -27,7 +27,9 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   </head>
 
-  <body class="<%= cookies[:theme] %>, bg-gray-200 font-family-karla text-black">
+  <%# set an inline background color to avoid flash while CSS loads %>
+  <% bg_color = (cookies[:theme] == 'dark') ? '#0f172a' : '#f3f4f6' %>
+  <body class="<%= cookies[:theme].presence || 'light' %> bg-gray-200 font-family-karla text-black" style="background-color: <%= bg_color %>">
     
 <nav class="flex flex-wrap items-center justify-between p-6 bg-teal-500">
   <div class="flex items-center flex-shrink-0 mr-6 text-white">
