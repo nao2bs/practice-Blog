@@ -1,0 +1,15 @@
+<div class="mt-10 border-t pt-10">
+      <h3 class="text-xl font-bold mb-4">コメントを投稿する</h3>
+      
+      <%= form_with(model: [ @post, @post.comments.build ], local: true) do |f| %>
+          <div class="mb-4">
+          <%= f.text_area :content, rows: 3, class: "w-full p-2 border rounded-lg",
+            placeholder: "コメントを入力してください",
+            required: true  
+          %>
+          </div>
+          <div>
+          <%= f.submit "投稿する", class: "bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 cursor-pointer" %>
+          </div>
+      <% end %>
+  </div>
