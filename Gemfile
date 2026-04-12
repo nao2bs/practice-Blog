@@ -82,3 +82,7 @@ gem 'kaminari'
 gem 'rails_admin'
 gem 'rails-i18n'
 gem 'tailwindcss-rails', '~> 2.0'
+
+gem "dockerfile-rails", ">= 1.7", :group => :development
+
+gem "pg", "~> 1.6"
