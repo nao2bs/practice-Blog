@@ -48,6 +48,11 @@ RailsAdmin.config do |config|
 
   config.model 'Post' do
     edit do
+      field :status, :enum do
+        enum do
+          { 'Draft' => 'draft', 'Published' => 'published' }
+        end
+      end
       field :title do
         required true
       end
