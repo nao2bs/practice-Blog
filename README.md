@@ -33,3 +33,10 @@ Rails7.2
 - ゲストユーザーログイン
 
 - Rspec での簡単なテスト（Devise）
+
+
+起動方法
+devcontainer内で
+```
+bin/dev
+```
