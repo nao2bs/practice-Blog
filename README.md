@@ -1,14 +1,14 @@
 # README
 
-このサンプルアプリは Rails7 とログイン機能でよく使う Devise と  
-TailwwindCSS をまとめて DockerCompose で起動するようにパッケージングしたものです。
+このサンプルアプリは Rails 7.2 とログイン機能でよく使う Devise、
+Tailwind CSS をまとめて Docker Compose で起動するようにパッケージングしたものです。
 
 ### バージョン情報
 
 Docker  
 Docker-Compose  
 Ruby3.1.2  
-Rails7.0.4
+Rails7.2
 
 ### 起動方法
 
@@ -17,7 +17,7 @@ Rails7.0.4
 ### 使用している gem
 
 - Devise
-- Tailwindcssed
+- Tailwind CSS
 
 ### 機能詳細
 

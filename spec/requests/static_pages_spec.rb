@@ -2,23 +2,23 @@ require 'rails_helper'
 
 RSpec.describe 'StaticPages', type: :request do
   describe 'GET /index' do
-    it 'returns http success' do
+    it 'redirects to sign in' do
       category = Category.create!(name: 'Test Category')
       Post.create!(title: 'Index Post', content: 'content', author: 'author', date: Date.today, category: category)
 
       get '/posts'
-      expect(response).to have_http_status(:ok)
+      expect(response).to redirect_to(new_user_session_path)
     end
   end
 
   describe 'GET /show' do
-    it 'returns http success' do
+    it 'redirects to sign in' do
       category = Category.create!(name: 'Show Category')
       post = Post.create!(title: 'Show Post', content: 'content', author: 'author', date: Date.today,
                           category: category)
 
       get "/posts/#{post.id}"
-      expect(response).to have_http_status(:ok)
+      expect(response).to redirect_to(new_user_session_path)
     end
   end
 

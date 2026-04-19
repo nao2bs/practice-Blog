@@ -41,7 +41,7 @@ RSpec.describe 'Posts', type: :request do
       it 'returns http success' do
         category = Category.create!(name: 'Show Category')
         post = Post.create!(title: 'Show Post', content: 'content', author: 'author', date: Date.today,
-                            category: category)
+                            category: category, status: :published)
         user = FactoryBot.create(:user)
         sign_in user
 

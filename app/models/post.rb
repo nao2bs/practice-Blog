@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   has_many :comments
   belongs_to :category
 
-  enum status: { draft: 0, published: 1 }
+  enum :status, { draft: 0, published: 1 }
   validates :status, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
