@@ -46,6 +46,16 @@ RSpec.describe 'StaticPages', type: :request do
       get root_path
       expect(response).to have_http_status '302'
     end
+
+    example 'ログイン画面に未ログイン警告を表示しないこと' do
+      get root_path
+      follow_redirect!
+
+      expect(response).to have_http_status(:ok)
+      expect(response.body).not_to include(I18n.t('devise.failure.unauthenticated'))
+      expect(response.body).not_to include('Translation missing')
+    end
+
     example 'admin_pathは閲覧不可' do
       get rails_admin_path
       expect(response).to have_http_status '302'
@@ -71,14 +81,18 @@ RSpec.describe 'StaticPages', type: :request do
 
     example 'パスワードを間違えてログインに失敗すること' do
       guest = FactoryBot.create(:guest_user)
-      post user_session_path, params: { email: guest.email, password: 'wrong_password' }
+      post user_session_path, params: { user: { email: guest.email, password: 'wrong_password' } }
       expect(response).to have_http_status '422'
+      expect(response.body).to include('メールアドレスまたはパスワードが正しくありません。')
+      expect(response.body).not_to include('Translation missing')
     end
 
     example 'メールアドレスを間違えてログインに失敗すること' do
       guest = FactoryBot.create(:guest_user)
-      post user_session_path, params: { email: 'wrong_email', password: guest.password }
+      post user_session_path, params: { user: { email: 'wrong_email', password: guest.password } }
       expect(response).to have_http_status '422'
+      expect(response.body).to include('メールアドレスまたはパスワードが正しくありません。')
+      expect(response.body).not_to include('Translation missing')
     end
   end
 

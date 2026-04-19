@@ -77,11 +77,11 @@
   <%= render "pages/guest_sign_in" %>
 </nav>
 
-<% if notice %>
+<% if display_notice? %>
   <p class="p-4 mb-4 text-sm text-green-800 bg-green-50 rounded-lg"><%= notice %></p>
 <% end %>
 
-<% if alert %>
+<% if display_alert? %>
   <p class="p-4 mb-4 text-sm text-red-800 bg-red-50 rounded-lg"><%= alert %></p>
 <% end %>
       
