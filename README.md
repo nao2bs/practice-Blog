@@ -32,6 +32,11 @@ Rails7.2
 
 - ゲストユーザーログイン
 
+- PWA 対応
+  - manifest: /manifest.webmanifest
+  - service worker: /service-worker.js
+  - オフライン画面: /offline.html
+
 - Rspec での簡単なテスト（Devise）
 
 
@@ -40,3 +45,9 @@ devcontainer内で
 ```
 bin/dev
 ```
+
+### PWA メモ
+
+- ホーム画面追加時は standalone 表示で起動
+- service worker がオフライン時の HTML ナビゲーションを /offline.html へフォールバック
+- 主要な公開アセットと PWA 関連ファイルをキャッシュ
