@@ -7,6 +7,23 @@
   ],
   "service": "web", //docker-compse.ymlで記載されている起動対象のサービス名、Railsのサービスを指定します
   "workspaceFolder": "/myapp", //起動時に接続するディレクトリ
+  "forwardPorts": [
+    3000
+  ],
+  "portsAttributes": {
+    "3000": {
+      "label": "Rails App",
+      "onAutoForward": "openPreview"
+    },
+    "5432": {
+      "label": "PostgreSQL",
+      "onAutoForward": "ignore"
+    },
+    "7658": {
+      "label": "Solargraph",
+      "onAutoForward": "ignore"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -22,34 +39,37 @@
         "editor.tabSize": 2,
         "editor.formatOnSave": true,
         "editor.renderWhitespace": "none",
+        "remote.autoForwardPorts": false,
         "[ruby]": {
           "editor.defaultFormatter": "castwide.solargraph"
         },
-        "files.associations":     { "*.erb": "erb"  },
-        "emmet.includeLanguages": {   "erb": "html" },
+        "files.associations": {
+          "*.erb": "erb"
+        },
+        "emmet.includeLanguages": {
+          "erb": "html"
+        },
         // Settings for Solargraph
         // https://github.com/castwide/solargraph
-        "solargraph.useBundler":  false,
+        "solargraph.useBundler": false,
         "solargraph.diagnostics": false,
-        "solargraph.formatting":  true,  // Use Ctrl+Shift+P->Format to format
-        "solargraph.autoformat":  false,
+        "solargraph.formatting": true, // Use Ctrl+Shift+P->Format to format
+        "solargraph.autoformat": false,
         "solargraph.definitions": true,
-        "solargraph.completion":  true,
-        "solargraph.references":  true,
-        "solargraph.symbols":     true,
-        "solargraph.rename":      true,
-        "solargraph.hover":       true,
-
+        "solargraph.completion": true,
+        "solargraph.references": true,
+        "solargraph.symbols": true,
+        "solargraph.rename": true,
+        "solargraph.hover": true,
         // Settings for Ruby LSP
         // https://github.com/Shopify/vscode-ruby-lsp
         "rubyLsp.formatter": "none",
         "rubyLsp.enabledFeatures": {
           "diagnostics": false,
-          "formatting":  false
+          "formatting": false
         }
       }
     }
   },
   "remoteUser": "root"
 }
-

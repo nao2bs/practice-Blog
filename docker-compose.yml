@@ -1,7 +1,7 @@
 version: "3"
 services:
   db:
-    image: postgres
+    image: postgres:17
     # dbのユーザー名とパスワードでこれが無いとdbが起動できなかった
     environment:
       POSTGRES_USER: postgres
