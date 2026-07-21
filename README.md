@@ -45,7 +45,11 @@ devcontainer内で
 ```
 bin/dev
 ```
+または
 
+bundle install
+rake assets:precompile
+後に実行とデバック（vscode）でサイトが立ち上がる
 ### PWA メモ
 
 - ホーム画面追加時は standalone 表示で起動
