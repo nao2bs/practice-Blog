@@ -2,19 +2,18 @@
 
 FactoryBot.define do
   factory :user do
-    # メールアドレス
-    email { 'test10@gmail.com' }
-    # パスワード
+    sequence(:email) { |n| "user#{n}@example.com" }
     password { 'password' }
-    # パスワード確認
     password_confirmation { 'password' }
+    admin { false }
+
+    trait :admin do
+      admin { true }
+    end
   end
 
-  factory :admin do
-    email { 'test2@gmail.com' }
-    password { 'password' }
-    password_confirmation { 'password' }
-    # 管理者フラグ
+  factory :admin, parent: :user do
+    sequence(:email) { |n| "admin#{n}@example.com" }
     admin { true }
   end
 end

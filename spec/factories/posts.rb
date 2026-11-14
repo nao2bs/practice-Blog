@@ -5,5 +5,14 @@ FactoryBot.define do
     author { 'Author' }
     date { Date.today }
     association :category
+    status { :draft }
+
+    trait :draft do
+      status { :draft }
+    end
+
+    trait :published do
+      status { :published }
+    end
   end
 end
