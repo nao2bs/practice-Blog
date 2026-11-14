@@ -3,33 +3,38 @@
 このサンプルアプリは Rails7 とログイン機能でよく使う Devise と  
 TailwwindCSS をまとめて DockerCompose で起動するようにパッケージングしたものです。
 
-### バージョン情報
+## バージョン情報
 
 Docker  
 Docker-Compose  
-Ruby3.1.2  
-Rails7.0.4
+Ruby3.1.6  
+Rails7
 
-### 起動方法
+## 技術選定の理由
+- **Ruby on Rails7**: 
+Railsで自作のブログシステムを作り、公開することで
+WEBサービスの企画から、設計、コーディング・公開を網羅的に学ぼうとした。
+- **Docker**:
+継続的な開発環境を揃えやすくした。
 
-このリポジトリをクローン後、docker compose コマンドで実行。
+- **TailwwindCSS**:
+CSSなどのスタイルシートを極力使わずにベースデザインができること。
 
-### 使用している gem
 
-- Devise
-- Tailwindcssed
+## 主な機能一覧
+### ユーザー機能                                                          
+  - **認証機能**                                                            - サインアップ / ログイン / ログアウト（Devise）                        
+  - かんたんゲストログイン機能（採用担当者様向けのお試し用）                  
+  - **記事閲覧・管理**                                                      
+  - 記事一覧（ページネーション: Kaminari）                                
+  - カテゴリー別絞り込み・表示                                                                                                
+  - **コメント機能**    
+  - **テーマ切り替え機能**                                                  
+### 管理者機能                                                            
+  - **RailsAdmin ダッシュボード (`/admin`)**                                
+  - ユーザー・記事・コメント・カテゴリーの CRUD 操作                      
+  - CanCanCan による管理者権限（`admin: true`）チェック  
 
-### 機能詳細
+## こだわった点・工夫した実装
 
-- Top ページ  
-  http://localhost:3000/
-
-- Devise のサインアップ機能  
-  http://localhost:3000/users/sign_up
-
-- Devise のログイン機能  
-  http://localhost:3000/users/sign_in
-
-- ゲストユーザーログイン
-
-- Rspec での簡単なテスト（Devise）
+1. **
